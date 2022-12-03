@@ -7,6 +7,7 @@ import {
 	getFinalMatch,
 	resetAll
 } from './db';
+import Header from './components/Header';
 
 const App = () => {
 	const [groups, setGroups] = useState(allGroup);
@@ -44,25 +45,24 @@ const App = () => {
 		setGroups([...allGroup]);
 	}
 	return <>
-		<div className='container  mx-auto flex flex-col justify-center my-4 mb-10 p-1 md:p-6'>
-			<div className='grid grid-cols-1 gap-2 md:gap-x-5 gap-y-0  px-5 md:px-0 pb-2 fixed bottom-0 right-0 bg-slate-300'>
-				<button className='mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:bg-gray-400' onClick={handlePlay}>
-					Play Group Matches
-				</button>
-				<button className='mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:bg-gray-400' onClick={playFinals}>
-					Play Finals
-				</button>
-				<button onClick={reset} className='mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' >
-					Reset
-				</button>
-			</div>
-			<div className="grid  grid-cols-1 md:grid-cols-2 auto-rows-auto md:gap-5 h-screen">
-				{groups.map(group => <Group key={group.name}
-					group={group}
-					showFixtures={showFixtures}
-					setShowFixtures={setShowFixtures}
-				/>)}
-			</div>
+		<Header /> 
+		<div className='grid grid-cols-1 gap-2 md:gap-x-5 gap-y-0  px-5 md:px-0 pb-2 fixed bottom-0 right-0 bg-slate-300'>
+			<button className='mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:bg-gray-400' onClick={handlePlay}>
+				Play Group Matches
+			</button>
+			<button className='mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:bg-gray-400' onClick={playFinals}>
+				Play Finals
+			</button>
+			<button onClick={reset} className='mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' >
+				Reset
+			</button>
+		</div>
+		<div className="grid  grid-cols-1 md:grid-cols-2 auto-rows-auto md:gap-5 h-screen">
+			{groups.map(group => <Group key={group.name}
+				group={group}
+				showFixtures={showFixtures}
+				setShowFixtures={setShowFixtures}
+			/>)}
 		</div>
 	</>
 }

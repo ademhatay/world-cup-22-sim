@@ -1,30 +1,11 @@
 import React from 'react'
-
+import GitHubButton from 'react-github-btn'
 const Header = () => {
-
-	// create star on github button
-	const starButton = () => {
-		const starButton = document.createElement('a');
-		starButton.className = 'github-button';
-		starButton.href = 'https://github.com/ademhatay/football-league';
-		starButton.setAttribute('data-icon', 'octicon-star');
-		starButton.setAttribute('data-size', 'large');
-		starButton.setAttribute('data-show-count', 'true');
-		starButton.setAttribute('aria-label', 'Star ademhatay/football-league on GitHub');
-		return starButton;
-	}
-
 	return <>
-		<header className='w-full gradient h-16'>
-			<div className='flex justify-center items-center h-full'>
-				<h1 className='text-3xl text-white font-bold text-shadow'>World Cup 2022 Simulator</h1>
-
-				{/* create star on github button */}
-				<a href="https://github.com/ademhatay/">Star on Github</a>
-
-			</div>
-
-		</header>
+		<div className="container w-full flex justify-center bg-black h-20 items-center text-white">
+			<GitHubButton href="https://github.com/ademhatay/world-cup-22-sim" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ademhatay/world-cup-22-sim on GitHub">Star</GitHubButton> &nbsp; &nbsp;
+			<GitHubButton href="https://github.com/ademhatay" data-size="large" data-show-count="true" aria-label="Follow @ademhatay on GitHub">Follow @ademhatay</GitHubButton>
+		</div>
 	</>
 }
 
